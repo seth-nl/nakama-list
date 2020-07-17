@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{ app.user.name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card profil">
+            <img src="{{ app.user.photoProfil }}" alt="photo de profil">
+            <p>Pseudo : {{ app.user.name }}</p>
+            <p>Email : {{ app.user.email }}</p>
+        </div>
+        <div>
+            {% for message in app.flashes('message') %}
+            <div class="col-4">{{ message }}</div>
+            {% endfor %}
+        </div>
+        <div>
+            <a class="btn btn-lg" href="{{ path('app_users_profile_edit') }}">Modifier le profil</a>
+            <a class="btn btn-lg" href="{{ path('app_forgot_password_request') }}">Modifier le mot de passe</a>
+        </div>
+    </div>
+{% endblock %}

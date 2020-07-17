@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <section>
+            <div class="row">
+                <div class="col-6 filtreAnime">
+                    <div class="anime">Anime</div>
+                </div>
+                <div class="col-6 filtreManga">
+                    <div class="manga">Manga</div>
+                </div>
+            </div>
+
+            <div class="row filtres">
+                <select name="" id="" class="col-4">
+                    <option value="">Trier par</option>
+                </select>
+                <div class="col-4"></div>
+                <select name="" id="" class="col-4">
+                    <option value="">Filtrer par</option>
+                </select>
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                {% for anime in animes %}
+                <div class="card col-12 ficheAnime">
+                    <img src="{{ animes.image_url }}" alt="">
+                    <div class="row">
+                        <p>{{ animes.title }}</p>
+                        <p>{{ animes.title_japanese }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ animes.synopsis }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ animes.type }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ animes.score }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                {# {% for manga in mangas %}
+                <div class="card col-12 ficheAnime">
+                    <img src="{{ manga.image_url }}" alt="">
+                    <div class="row">
+                        <p>{{ manga.title }}</p>
+                        <p>{{ manga.title_japanese }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ manga.synopsis }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ manga.type }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ manga.score }}</p>
+                    </div>
+                </div>
+                {% endfor %} #}
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

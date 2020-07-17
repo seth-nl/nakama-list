@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du profil{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card profil">
+            <img src="{{ app.user.photoProfil }}" alt="photo de profil">
+            <p>Pseudo : {{ app.user.name }}</p>
+            <p>Email : {{ app.user.email }}</p>
+        </div>
+        <div class="form-group">
+            {{ form(form) }}
+        </div>
+        <div>
+            <a class="btn btn-lg" href="{{ path('app_home') }}">Modifier le profil</a>
+            <a class="btn btn-lg" href="{{ path('app_forgot_password_request') }}">Modifier le mot de passe</a>
+        </div>
+    </div>
+{% endblock %}

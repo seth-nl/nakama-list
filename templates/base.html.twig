@@ -3,10 +3,59 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block header %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logoblancpourfondnoir.png" alt="logo nakamalist">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path("app_home") }}">Accueil <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_users") }}">Mon profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_connexion") }}">Se connecter / S'inscrire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_home") }}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_mentions_legales") }}">Mentions légales</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" wtx-context="682EE4BC-75BA-479B-8732-CBA8404FCB7F">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" wtx-context="ECCB89D5-7F82-41AA-8C5D-92B3D3E63D35">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            </nav>
+        {% endblock %}
+
+        {% block body %}        
+        {% endblock %}
+
+        {% block footer %}
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            <script src="https://kit.fontawesome.com/cb065009ae.js" crossorigin="anonymous"></script>
+            <script src="{{ asset('assets/js/scripts.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

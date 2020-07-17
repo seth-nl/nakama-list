@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConnexionController!{% endblock %}
+
+{% block body %}
+<div class="container connexionContainer">
+    <a class="btn creerCompte btn-lg" href="{{ path("app_register") }}">
+    Créer un compte
+    </a>
+    <a class="btn seConnecter btn-lg" href="{{ path("app_login") }}">
+    Se connecter
+    </a>
+
+</div>
+
+{% endblock %}

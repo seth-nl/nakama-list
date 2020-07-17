@@ -1,0 +1,97 @@
+body{
+    background-color: #2A2828;
+}
+
+.navbar-brand img{
+    height: 2rem;
+}
+
+/* 
+ * FILTRES ----------
+*/
+
+.filtres{
+    
+}
+
+.filtreAnime{
+    background-color: #818181;
+    
+}
+
+.filtreManga{
+    background-color: #5D5A5A;
+}
+
+.filtreAnime, .filtreManga{
+    font-size: 2rem;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* 
+ * ---------- FILTRES
+*/
+
+
+/* 
+ * FICHE ANIME ----------
+*/
+
+.ficheAnime img{
+    height: auto;
+    width: 50%;
+}
+
+.ficheAnime{
+    margin: .5rem 0;
+}
+
+
+/* 
+ * ---------- FICHE ANIME
+*/
+
+
+/* 
+ * BOUTONS ----------
+*/
+
+    .connexionContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .creerCompte{
+        background-color: #B1D3E6;
+    }
+
+    .seConnecter{
+        background-color: #9EE2A3;
+    }
+
+    .seConnecter, .creerCompte{
+        color: #2A2828;
+        font-size: 2rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: 2rem;
+    }
+/* 
+ * ---------- BOUTONS
+*/
+
+
+/* 
+ * PROFIL ----------
+*/
+
+    .profil img{
+        height: auto;
+        width: 7rem;
+    }    
+
+/* 
+ * ---------- PROFIL
+*/
