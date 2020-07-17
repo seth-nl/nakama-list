@@ -10,6 +10,10 @@ body{
  * FILTRES ----------
 */
 
+select{
+    margin : .5rem 0;
+}
+
 .filtres{
     
 }
@@ -53,6 +57,39 @@ body{
  * ---------- FICHE ANIME
 */
 
+/* 
+ * FICHE MANGA ----------
+*/
+
+.ficheManga img{
+    height: auto;
+    width: 50%;
+}
+
+.ficheManga{
+    margin: .5rem 0;
+}
+
+
+/* 
+ * ---------- FICHE MANGA
+*/
+
+/* 
+ * FICHE SOLO ----------
+*/
+.heartwishList{
+    fill:white;
+}
+
+#Capa_1{
+    width: 3rem;
+}
+
+
+/* 
+ * ---------- FICHE SOLO
+*/
 
 /* 
  * BOUTONS ----------
@@ -95,3 +132,17 @@ body{
 /* 
  * ---------- PROFIL
 */
+
+
+/* 
+ * CONTACT ----------
+*/
+
+.contactForm{
+    text-align: left;
+}    
+
+/* 
+* ---------- CONTACT
+*/
+

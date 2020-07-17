@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <section>
+            <div class="row">
+                <div class="col-6">
+                    <div class="ajouterListe">
+                        <p>Ajouter à ma liste</p>
+                        <div class="coeur">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 391.837 391.837" style="enable-background:new 0 0 391.837 391.837;" xml:space="preserve">
+                            <g>
+                                <path class="heartwishList" d="M285.257,35.528c58.743,0.286,106.294,47.836,106.58,106.58
+                                    c0,107.624-195.918,214.204-195.918,214.204S0,248.165,0,142.108c0-58.862,47.717-106.58,106.58-106.58l0,0
+                                    c36.032-0.281,69.718,17.842,89.339,48.065C215.674,53.517,249.273,35.441,285.257,35.528z"/>
+                            </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="noterOeuvre">
+                        <p>Noter l'oeuvre</p>
+                        <input type="number" name="" id="">/10
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <div class="card col-12 ficheAnime">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{{ fiche.image_url }}" alt="">
+                        </div>
+                        <div class="col-6">
+                            <select name="" id="">
+                                {% for i in 1..episodes.episodes|length %}
+                                <option value="{{i}}">episode {{i}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="id">{{fiche.mal_id}}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ fiche.title }}</p>
+                        <p>{{ fiche.title_japanese }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ fiche.synopsis }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ fiche.type }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ fiche.score }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

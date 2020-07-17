@@ -7,20 +7,23 @@
         <section>
             <div class="row">
                 <div class="col-6 filtreAnime">
-                    <div class="anime">Anime</div>
+                    <div class="animeFilter">Anime</div>
                 </div>
                 <div class="col-6 filtreManga">
-                    <div class="manga">Manga</div>
+                    <div class="mangaFilter">Manga</div>
                 </div>
             </div>
 
             <div class="row filtres">
-                <select name="" id="" class="col-4">
+                <select class="form-control form-control-lg" name="" id="" class="col-4">
                     <option value="">Trier par</option>
+                    <option value="">Note</option>
+                    <option value="">A-Z</option>
                 </select>
                 <div class="col-4"></div>
-                <select name="" id="" class="col-4">
+                <select class="form-control form-control-lg" name="" id="" class="col-4">
                     <option value="">Filtrer par</option>
+                    <option value=""></option>
                 </select>
             </div>
         </section>
@@ -28,26 +31,33 @@
             <div class="row">
                 {% for anime in animes %}
                 <div class="card col-12 ficheAnime">
-                    <img src="{{ animes.image_url }}" alt="">
+                    <img src="{{ anime.image_url }}" alt="">
                     <div class="row">
-                        <p>{{ animes.title }}</p>
-                        <p>{{ animes.title_japanese }}</p>
+                        <p class="id">{{anime.mal_id}}</p>
                     </div>
                     <div class="row">
-                        <p>{{ animes.synopsis }}</p>
+                        <p>{{ anime.title }}</p>
+                        <p>{{ anime.title_japanese }}</p>
                     </div>
                     <div class="row">
-                        <p>{{ animes.type }}</p>
+                        <p>{{ anime.synopsis }}</p>
                     </div>
                     <div class="row">
-                        <p>{{ animes.score }}</p>
+                        <p>{{ anime.type }}</p>
                     </div>
+                    <div class="row">
+                        <p>{{ anime.score }}</p>
+                    </div>
+                    <a class="btn btn-light" href="{{ path('app_fiche_anime', {'id': anime.mal_id} ) }}">Voir la fiche</a>
                 </div>
                 {% endfor %}
                 
-                {# {% for manga in mangas %}
-                <div class="card col-12 ficheAnime">
+                {% for manga in mangas %}
+                <div class="card col-12 ficheManga">
                     <img src="{{ manga.image_url }}" alt="">
+                    <div class="row">
+                        <p class="id">{{manga.mal_id}}</p>
+                    </div>
                     <div class="row">
                         <p>{{ manga.title }}</p>
                         <p>{{ manga.title_japanese }}</p>
@@ -61,8 +71,9 @@
                     <div class="row">
                         <p>{{ manga.score }}</p>
                     </div>
+                    <a class="btn btn-light" href="{{ path('app_fiche_manga', {'id': manga.mal_id} ) }}">Voir la fiche</a>
                 </div>
-                {% endfor %} #}
+                {% endfor %}
             </div>
         </section>
     </div>

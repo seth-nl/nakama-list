@@ -23,57 +23,37 @@ class MainController extends AbstractController
      */
     public function Anime(HttpClientInterface $client)
     {      
-       // $response = $client->request('GET', 'https://api.jikan.moe/v3/anime/1/');
-
-            for($i = 1; $i<=5; $i++)
+            $content=[];
+            for($i = 1; $i <= 37; ++$i)
             {
-                $response = $client->request('GET', 'https://api.jikan.moe/v3/anime/'. $i . '/');
-                if(!empty($response)){
-                    $content = $response->toArray();
-                    return $this->render('main/index.html.twig', [
-                        'animes' => $content,
-                    ]); 
+                $response = $client->request('GET', 'https://api.jikan.moe/v3/anime/'. $i);
+                //dd($response->toArray());
+                if($response->getStatusCode() === 200) {
+                    if(!empty($response)){
+                        $content[$i] = $response->toArray();
+                    }
+                    if(count($content) == 5){
+                        $i = 5;
+                    }
                 }
             }
-       
-        // gets the HTTP status code of the response
-        //$statusCode = $response->getStatusCode();
 
-        // gets the HTTP headers as string[][] with the header names lower-cased
-        //$headers = $response->getHeaders();
-        
-        // Récupérer le type de content : 'application/json'
-        //$contentType = $response->getHeaders()['content-type'][0];
-        
-        // gets the response body as a string
-        //$content = $response->getContent();
-        
-        // casts the response JSON contents to a PHP array
-        //$content = $response->toArray();
-        
-        //$tableauPHP = ['prenom'=>'nicolas', 'nom'=>'LEPETIT'];
-        //return $this->render('main/index.html.twig', [
-        //    'anime' => $content,
-        //    'auteur'=>$tableauPHP,
-        //]);
+            $content2=[];
+            for($j = 1; $j <= 37; ++$j)
+            {
+                $response2 = $client->request('GET', 'https://api.jikan.moe/v3/manga/'. $j);
+                if($response2->getStatusCode() === 200) {
+                    if(!empty($response2)){
+                        $content2[$j] = $response2->toArray();
+                    }
+                    if(count($content2) == 5){
+                        $j = 5;
+                    }
+                }
+            }
+            return $this->render('main/index.html.twig', [
+                'animes' => $content,
+                'mangas' => $content2
+            ]); 
     }
-
-    // /**
-    //  * @Route("/", name="app_home", methods={"GET"})
-    //  */
-    // public function Manga(HttpClientInterface $client)
-    // {      
-    //    // $response = $client->request('GET', 'https://api.jikan.moe/v3/anime/1/');
-
-    //         for($j = 1; $j<=5; $j++)
-    //         {
-    //             $response2 = $client->request('GET', 'https://api.jikan.moe/v3/manga/'. $j . '/');
-    //             if(!empty($response2)){
-    //                 $content2 = $response2->toArray();
-    //                 return $this->render('main/index.html.twig', [
-    //                     'mangas' => $content2,
-    //                 ]); 
-    //             }
-    //         }
-    // }
 }
