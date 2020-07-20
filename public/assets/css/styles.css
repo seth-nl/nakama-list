@@ -45,7 +45,7 @@ select{
 
 .ficheAnime img{
     height: auto;
-    width: 50%;
+    width: 10rem;
 }
 
 .ficheAnime{
@@ -63,7 +63,7 @@ select{
 
 .ficheManga img{
     height: auto;
-    width: 50%;
+    width: 10rem;
 }
 
 .ficheManga{

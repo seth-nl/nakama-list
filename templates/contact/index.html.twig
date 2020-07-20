@@ -5,6 +5,9 @@
 {% block body %}
 <div class="container">
     <h1>Nous contacter</h1>
+    {% for message in app.flashes('message') %}
+        <div class="alert success">{{message}}</div>
+    {% endfor %}
     <div class="form-group contactForm">
         {{ form_start(contactForm) }}
             <div class="form-group">

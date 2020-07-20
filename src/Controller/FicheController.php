@@ -13,11 +13,16 @@ class FicheController extends AbstractController
      */
     public function index(HttpClientInterface $client, $id)
     {
+        // on initialise notre variable content comme un tableau
             $content=[];
+            // on fait notre requête API avec la fonction request()
             $response = $client->request('GET', 'https://api.jikan.moe/v3/anime/'. $id);
             if($response->getStatusCode() === 200) {
+                // on vérifie qu'il n'y a pas d'erreur
                 if(!empty($response)){
+                    //si le tableau n'est pas vide
                     $content = $response->toArray();
+                    // on transforme notre tableau json en un tableau PHP expoitable dans notre template
                 }
             }
 

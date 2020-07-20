@@ -24,7 +24,7 @@ class MainController extends AbstractController
     public function Anime(HttpClientInterface $client)
     {      
             $content=[];
-            for($i = 1; $i <= 37; ++$i)
+            for($i = 0; $i <= 37; ++$i)
             {
                 $response = $client->request('GET', 'https://api.jikan.moe/v3/anime/'. $i);
                 //dd($response->toArray());
@@ -33,7 +33,7 @@ class MainController extends AbstractController
                         $content[$i] = $response->toArray();
                     }
                     if(count($content) == 5){
-                        $i = 5;
+                        $i = 37;
                     }
                 }
             }
@@ -47,7 +47,7 @@ class MainController extends AbstractController
                         $content2[$j] = $response2->toArray();
                     }
                     if(count($content2) == 5){
-                        $j = 5;
+                        $j = 37;
                     }
                 }
             }
